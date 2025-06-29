@@ -17,7 +17,7 @@ export class LoginCommandHandler implements ICommand<LoginCommand, CommandRespon
     executeCommand(command: LoginCommand): Observable<CommandResponse> {
         return this.loginApolloService.executeService(command).pipe(
             map((response) => {
-                this.authService.setToken(response.login.token);
+                this.authService.setToken(response.login.data);
                 console.log('passed handler');
 
                 return {

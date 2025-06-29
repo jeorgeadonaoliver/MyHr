@@ -23,3 +23,16 @@ C:\Users\Jeorge Oliver\source\GitProjects\myHr\MyHr\myHr-api\myHr\myHr.domain\ob
 C:\Users\Jeorge Oliver\source\GitProjects\myHr\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\refint\myHr.domain.dll
 C:\Users\Jeorge Oliver\source\GitProjects\myHr\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.pdb
 C:\Users\Jeorge Oliver\source\GitProjects\myHr\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\ref\myHr.domain.dll
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\bin\Debug\net8.0\myHr.domain.deps.json
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\bin\Debug\net8.0\myHr.domain.dll
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\bin\Debug\net8.0\myHr.domain.pdb
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.csproj.AssemblyReference.cache
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.AssemblyInfoInputs.cache
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.AssemblyInfo.cs
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.csproj.CoreCompileInputs.cache
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.sourcelink.json
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.dll
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\refint\myHr.domain.dll
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\myHr.domain.pdb
+C:\Users\Jeorge Oliver\source\GitProjects\MyHR2025\MyHr\myHr-api\myHr\myHr.domain\obj\Debug\net8.0\ref\myHr.domain.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iImZjOFDGNM=",
+  "dgSpecHash": "SZ+jJoKpiec=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.application\\myHr.application.csproj",
+  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.application\\myHr.application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\fluentresults\\3.16.0\\fluentresults.3.16.0.nupkg.sha512",
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tV85z3vhudo=",
+  "dgSpecHash": "UDTf2K0BaVw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.application.test\\myHr.application.test.csproj",
+  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.application.test\\myHr.application.test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",

@@ -1,7 +1,7 @@
 interface LoginPayload{
   success: boolean;
   message: string;
-  token: string;
+  data: any;
 }
 
 export interface LoginMutationResponseModel {
@@ -12,6 +12,6 @@ export const Failed_LoginMutationResponse: LoginMutationResponseModel = {
   login: {
     success: false,
     message: 'Login Failed!',
-    token: ''
+    data: ''
   }
 };

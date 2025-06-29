@@ -39,20 +39,38 @@ export type AuthenticateUserCommandInput = {
 };
 
 export type CreateDepartmentCommandInput = {
-  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdBy: Scalars['String']['input'];
   createdDate?: InputMaybe<Scalars['DateTime']['input']>;
   departmentName: Scalars['String']['input'];
   id: Scalars['UUID']['input'];
   location?: InputMaybe<Scalars['String']['input']>;
-  modifiedBy?: InputMaybe<Scalars['String']['input']>;
-  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
-export type DepartmentPayloadOfString = {
-  __typename?: 'DepartmentPayloadOfString';
-  data?: Maybe<Scalars['String']['output']>;
-  message?: Maybe<Scalars['String']['output']>;
-  success: Scalars['Boolean']['output'];
+export type CreateEmployeeCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  departmentId?: InputMaybe<Scalars['UUID']['input']>;
+  email: Scalars['String']['input'];
+  firstName: Scalars['String']['input'];
+  hireDate: Scalars['LocalDate']['input'];
+  id: Scalars['UUID']['input'];
+  lastName: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  positionId?: InputMaybe<Scalars['UUID']['input']>;
+  salary: Scalars['Decimal']['input'];
+};
+
+export type GetAllDepartmentsQueryDto = {
+  __typename?: 'GetAllDepartmentsQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  departmentName: Scalars['String']['output'];
+  id: Scalars['UUID']['output'];
+  location?: Maybe<Scalars['String']['output']>;
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
 };
 
 export type GetAllEmployeeQueryDto = {
@@ -72,6 +90,17 @@ export type GetAllEmployeeQueryDto = {
   salary: Scalars['Decimal']['output'];
 };
 
+export type GetDepartmentByIdQueryDto = {
+  __typename?: 'GetDepartmentByIdQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  departmentName: Scalars['String']['output'];
+  id: Scalars['UUID']['output'];
+  location?: Maybe<Scalars['String']['output']>;
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+};
+
 export type GetEmployeeByIdQueryDto = {
   __typename?: 'GetEmployeeByIdQueryDto';
   createdBy?: Maybe<Scalars['String']['output']>;
@@ -89,17 +118,13 @@ export type GetEmployeeByIdQueryDto = {
   salary: Scalars['Decimal']['output'];
 };
 
-export type LoginPayload = {
-  __typename?: 'LoginPayload';
-  message?: Maybe<Scalars['String']['output']>;
-  success: Scalars['Boolean']['output'];
-  token?: Maybe<Scalars['String']['output']>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
-  CreateDepartment: DepartmentPayloadOfString;
-  login: LoginPayload;
+  CreateDepartment: PayLoadOfGuid;
+  CreateEmployee: PayLoadOfGuid;
+  UpdateDepartment: PayLoadOfGuid;
+  UpdateEmployee: PayLoadOfGuid;
+  login: PayLoadOfString;
 };
 
 
@@ -108,14 +133,78 @@ export type MutationCreateDepartmentArgs = {
 };
 
 
+export type MutationCreateEmployeeArgs = {
+  cmd: CreateEmployeeCommandInput;
+};
+
+
+export type MutationUpdateDepartmentArgs = {
+  command: UpdateDepartmentCommandInput;
+};
+
+
+export type MutationUpdateEmployeeArgs = {
+  command: UpdateEmployeeCommandInput;
+};
+
+
 export type MutationLoginArgs = {
   command: AuthenticateUserCommandInput;
 };
 
+export type PayLoadOfGetDepartmentByIdQueryDto = {
+  __typename?: 'PayLoadOfGetDepartmentByIdQueryDto';
+  data?: Maybe<GetDepartmentByIdQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfGetEmployeeByIdQueryDto = {
+  __typename?: 'PayLoadOfGetEmployeeByIdQueryDto';
+  data?: Maybe<GetEmployeeByIdQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfGuid = {
+  __typename?: 'PayLoadOfGuid';
+  data: Scalars['UUID']['output'];
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetAllDepartmentsQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllDepartmentsQueryDto';
+  data?: Maybe<Array<Maybe<GetAllDepartmentsQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetAllEmployeeQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllEmployeeQueryDto';
+  data?: Maybe<Array<Maybe<GetAllEmployeeQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfString = {
+  __typename?: 'PayLoadOfString';
+  data?: Maybe<Scalars['String']['output']>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
 export type Query = {
   __typename?: 'Query';
-  GetEmployeeById: GetEmployeeByIdQueryDto;
-  getEmployee: Array<GetAllEmployeeQueryDto>;
+  GetAllDepartment: PayLoadOfIEnumerableOfGetAllDepartmentsQueryDto;
+  GetDepartmentById: PayLoadOfGetDepartmentByIdQueryDto;
+  GetEmployeeById: PayLoadOfGetEmployeeByIdQueryDto;
+  getEmployee: PayLoadOfIEnumerableOfGetAllEmployeeQueryDto;
+};
+
+
+export type QueryGetDepartmentByIdArgs = {
+  id: Scalars['UUID']['input'];
 };
 
 
@@ -123,12 +212,38 @@ export type QueryGetEmployeeByIdArgs = {
   id: Scalars['UUID']['input'];
 };
 
+export type UpdateDepartmentCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  departmentName: Scalars['String']['input'];
+  id: Scalars['UUID']['input'];
+  location?: InputMaybe<Scalars['String']['input']>;
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type UpdateEmployeeCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  departmentId?: InputMaybe<Scalars['UUID']['input']>;
+  email: Scalars['String']['input'];
+  firstName: Scalars['String']['input'];
+  hireDate: Scalars['LocalDate']['input'];
+  id: Scalars['UUID']['input'];
+  lastName: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  phoneNumber?: InputMaybe<Scalars['String']['input']>;
+  positionId?: InputMaybe<Scalars['UUID']['input']>;
+  salary: Scalars['Decimal']['input'];
+};
+
 export type CreateDepartmentMutationVariables = Exact<{
   command: CreateDepartmentCommandInput;
 }>;
 
 
-export type CreateDepartmentMutation = { __typename?: 'Mutation', CreateDepartment: { __typename?: 'DepartmentPayloadOfString', success: boolean, message?: string | null, data?: string | null } };
+export type CreateDepartmentMutation = { __typename?: 'Mutation', CreateDepartment: { __typename?: 'PayLoadOfGuid', success: boolean, message?: string | null, data: any } };
 
 
 export const CreateDepartmentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateDepartment"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"command"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateDepartmentCommandInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CreateDepartment"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"command"},"value":{"kind":"Variable","name":{"kind":"Name","value":"command"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}},{"kind":"Field","name":{"kind":"Name","value":"message"}},{"kind":"Field","name":{"kind":"Name","value":"data"}}]}}]}}]} as unknown as DocumentNode<CreateDepartmentMutation, CreateDepartmentMutationVariables>;

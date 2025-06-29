@@ -14,10 +14,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    token\n  }\n}": typeof types.LoginDocument,
+    "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    data\n  }\n}": typeof types.LoginDocument,
 };
 const documents: Documents = {
-    "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    token\n  }\n}": types.LoginDocument,
+    "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    data\n  }\n}": types.LoginDocument,
 };
 
 /**
@@ -37,7 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    token\n  }\n}"): (typeof documents)["mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    token\n  }\n}"];
+export function graphql(source: "mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    data\n  }\n}"): (typeof documents)["mutation Login($command: AuthenticateUserCommandInput!) {\n  login(command: $command) {\n    success\n    message\n    data\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

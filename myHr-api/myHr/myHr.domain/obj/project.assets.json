@@ -924,11 +924,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
+      "projectUniqueName": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
       "projectName": "myHr.domain",
-      "projectPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
+      "projectPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
       "packagesPath": "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.domain\\obj\\",
+      "outputPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JVZkIk9Fsvg=",
+  "dgSpecHash": "urvOe1Aj2LA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
+  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.domain\\myHr.domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\fluentresults\\3.16.0\\fluentresults.3.16.0.nupkg.sha512",
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.6\\microsoft.aspnetcore.cryptography.internal.9.0.6.nupkg.sha512",

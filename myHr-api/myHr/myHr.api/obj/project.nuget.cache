@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1IcpnAl9OVU=",
+  "dgSpecHash": "dWIRjc3We3Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\myHr.api\\myHr.api.csproj",
+  "projectFilePath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.api\\myHr.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Jeorge Oliver\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
