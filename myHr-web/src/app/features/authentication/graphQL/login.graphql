@@ -1,0 +1,7 @@
+mutation Login($command: AuthenticateUserCommandInput!) {
+  login(command: $command) {
+    success
+    message
+    token
+  }
+}

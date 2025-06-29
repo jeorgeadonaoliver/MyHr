@@ -1,0 +1,8 @@
+mutation CreateDepartment($command: CreateDepartmentCommandInput!){
+  CreateDepartment(command: $command)
+  {
+    success
+    message
+    data
+  }
+}

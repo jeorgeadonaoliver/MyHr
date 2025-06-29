@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "Wljw2aPcmVivB2sjYPx9YFXmzkPUbV/Pjx/0OYRk9tU=",
+  "Source": "myHr.api",
+  "BasePath": "_content/myHr.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

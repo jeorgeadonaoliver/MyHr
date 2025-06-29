@@ -1,0 +1,67 @@
+npm install @apollo/client graphql
+npm install @apollo-angular/core @apollo-angular/http
+npm install -D @graphql-codegen/cli @graphql-codegen/typescript  @graphql-codegen/typescript-operations @graphql-codegen/typescript-apollo-angular
+npm install -D @graphql-codegen/cli
+
+2. update tsconfig.json
+
+    //used by apollo : setup
+    "lib": ["dom", "esnext", "esnext.asynciterable"],
+    "allowSyntheticDefaultImports": true
+    //end of set up
+
+3. under package.json -> scripts
+	allow cross env : npm install -D cross-env
+	
+    "generate": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 graphql-codegen"
+
+
+4. CREATE FILE ON ROOT LEVEL : codegen.ts
+
+	import type { CodegenConfig } from '@graphql-codegen/cli';
+
+	const config: CodegenConfig = {
+	  schema: 'https://localhost:7083/graphql/',
+	  documents: ['src/**/*.ts'],
+	  generates: {
+		'./src/app/features/authentication/graphQL/': {
+		  preset: 'client',
+		  plugins: [],
+		},
+
+		// User feature
+    		'./src/app/features/user/graphql/': {
+      		preset: 'client',
+      		plugins: [],
+      		presetConfig: {
+        	gqlTagName: 'gql', // optional
+      			},
+    		},
+	  },
+	  
+	};
+
+	export default config;
+	
+3 update app.config.ts
+
+	 provideApollo(() => {
+      const httpLink = inject(HttpLink);
+
+      return {
+        link: httpLink.create({
+          uri: 'https://localhost:7083/graphql/',
+          withCredentials: true
+        }),
+        cache: new InMemoryCache(),
+        connectToDevTools: true,
+        defaultOptions: {
+          mutate: { errorPolicy: 'all' },
+          query: { errorPolicy: 'all' },
+          watchQuery: { errorPolicy: 'all' },
+        }
+      };
+    })
+	
+	
+4 run: npm run generate       

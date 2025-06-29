@@ -1,0 +1,35 @@
+query getEmployee{
+    getEmployee{
+        createdBy
+        createdDate
+        departmentId
+        email
+        id
+        firstName
+        hireDate
+        lastName
+        modifiedBy
+        modifiedDate
+        phoneNumber
+        positionId
+        salary
+    }
+}
+
+query GetEmployeeById($id: UUID!) {
+  GetEmployeeById(id: $id) {
+    lastName
+    firstName
+    email
+    salary
+    createdBy
+    createdDate
+    departmentId
+    hireDate
+    id
+    modifiedBy
+    modifiedDate
+    phoneNumber
+    positionId
+  }
+}

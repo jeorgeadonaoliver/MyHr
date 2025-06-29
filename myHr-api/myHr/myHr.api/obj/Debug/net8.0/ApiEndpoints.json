@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "myHr.api.Controllers.AuthController",
+    "Method": "Home",
+    "RelativePath": "api/Auth/Home",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myHr.api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "myHr.application.Features.Authentication.Command.AuthenticateUser.AuthenticateUserCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

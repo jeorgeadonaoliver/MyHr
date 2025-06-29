@@ -1,0 +1,22 @@
+﻿global using myHr.api.Extension;
+global using myHr.api.Infrastructure;
+global using myHr.api.Middleware;
+global using myHr.application;
+global using myHr.application.Contracts;
+global using myHr.persistence;
+global using myHr.security;
+global using Microsoft.AspNetCore.Identity;
+global using myHr.domain.myHrIdentityDb;
+global using Microsoft.AspNetCore.Mvc;
+global using System.Net;
+global using System.Text.Json;
+global using MediatR;
+global using myHr.api.GraphQL.PayLoad;
+global using myHr.application.Features.Authentication.Command.AuthenticateUser;
+global using myHr.api.GraphQL.Mutation;
+global using myHr.api.GraphQL.Query;
+global using Microsoft.OpenApi.Models;
+global using myHr.application.Features.Employees.query.GetAllEmployee;
+global using HotChocolate.Authorization;
+global using myHr.application.Features.Employees.query.get_employee.by_id;
+

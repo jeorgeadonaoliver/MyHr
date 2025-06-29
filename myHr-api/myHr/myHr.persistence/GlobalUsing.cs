@@ -1,0 +1,14 @@
+﻿global using Microsoft.AspNetCore.Identity;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using myHr.application.Contracts;
+global using myHr.domain.myHrIdentityDb;
+global using myHr.domain.myHrDb;
+global using myHr.persistence.Repository;
+global using myHr.security.myHrIdentityDb;
+global using System.Security.Claims;
+global using Microsoft.Extensions.Options;
+global using System.Linq.Expressions;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using FluentResults;

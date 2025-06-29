@@ -1,0 +1,50 @@
+<div class="h-screen flex items-center justify-center bg-gray-100 px-4">
+  <div class="flex bg-white rounded-3xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] overflow-hidden max-w-4xl w-full">
+        
+    <div class="hidden lg:block lg:w-1/2 bg-cover"style="background-image: url('shake-hands.jpg')">
+    </div>
+    <div class="w-full p-8 lg:w-1/2">
+      <p class="text-4xl text-gray-600 text-center">Welcome back!</p>
+      <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+        <div class="mt-4">
+          <label for="username" class="block text-gray-700 text-sm font-bold mb-2">User Name</label>
+          <input type="text" autocomplete="username" id="username" formControlName="username" class="bg-gray-200 text-gray-700 border border-gray-300 rounded-2xl py-2 px-4 block w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
+          <div
+            [ngClass]="{
+              '!text-red-500': loginFormGroup.get('username')?.hasError('required') && loginFormGroup.get('username')?.touched,
+              '!text-white': !(loginFormGroup.get('username')?.hasError('required') && loginFormGroup.get('username')?.touched),
+              'transition-all': true,
+              'duration-300': true,
+              'text-sm': true
+            }"
+          >
+            User name is required!
+          </div>
+        </div> 
+        <div class="mt-4">
+          <div class="flex justify-between">
+            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <a href="#" class="text-xs text-gray-500">Forget Password?</a>
+          </div>
+          <input type="password" id="password" formControlName="password" class="bg-gray-200 text-gray-700 border border-gray-300 rounded-2xl py-2 px-4 block w-full focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          <div [ngClass]="{
+              '!text-red-500': loginFormGroup.get('password')?.hasError('required') && loginFormGroup.get('password')?.touched,
+              '!text-white': !(loginFormGroup.get('password')?.hasError('required') && loginFormGroup.get('password')?.touched),
+              'transition-all': true,
+              'duration-300': true,
+              'text-sm': true
+            }">
+              Password is required.
+            </div>
+        </div>
+        <div class="mt-8">
+          <button type="submit" class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded-2xl hover:bg-gray-600">
+            Login
+          </button>
+          <p *ngIf="errorMessage" class="text-red-500 transition-all duration-300 text-sm">{{ errorMessage }}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
