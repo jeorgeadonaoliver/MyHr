@@ -19,4 +19,13 @@ global using Microsoft.OpenApi.Models;
 global using myHr.application.Features.Employees.query.GetAllEmployee;
 global using HotChocolate.Authorization;
 global using myHr.application.Features.Employees.query.get_employee.by_id;
-
+global using myHr.application.Features.JobPositions.command.create_jobposition;
+global using myHr.application.Features.LeaveCredits.command.create_leavecredit;
+global using myHr.application.Features.LeaveCredits.query.get_all_leavecredits;
+global using myHr.application.Features.LeaveRequests.query.get_leaverequest.by_leaverequest_id;
+global using myHr.application.Features.LeaveRequests.query.get_all_leaverequest;
+global using myHr.application.Features.LeaveRequests.query.get_leaverequest.by_employee_id;
+global using myHr.application.Features.Departments.query.get_all_departments;
+global using myHr.application.Features.Departments.query.get_department.by_id;
+global using myHr.application.Features.JobPositions.query.get_all_jobpositions;
+global using myHr.application.Features.JobPositions.query.get_jobpositions.by_id;

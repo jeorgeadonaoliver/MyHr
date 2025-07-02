@@ -1,6 +1,6 @@
 ﻿namespace myHr.application.Features.LeaveRequests.query.get_leaverequest.by_employee_id;
 
-public class GetLeaveRequestByEmployeeIdQueryHandler : IRequestHandler<GetLeaveRequestByEmployeeIdQuery, IEnumerable<GetLeaveRequestByEmployeeIdQueryDto>>
+public class GetLeaveRequestByEmployeeIdQueryHandler : IRequestHandler<GetLeaveRequestByEmployeeIdQuery, Result<IEnumerable<GetLeaveRequestByEmployeeIdQueryDto>>>
 {
     private readonly ILeaveRequestRepository _repository;
 
@@ -9,15 +9,14 @@ public class GetLeaveRequestByEmployeeIdQueryHandler : IRequestHandler<GetLeaveR
         _repository = repository;
     }
 
-    public async Task<IEnumerable<GetLeaveRequestByEmployeeIdQueryDto>> Handle(GetLeaveRequestByEmployeeIdQuery request, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<GetLeaveRequestByEmployeeIdQueryDto>>> Handle(GetLeaveRequestByEmployeeIdQuery request, CancellationToken cancellationToken)
     {
         var result = await _repository.GetAllAsync(x => x.EmployeeId == request.employeeid, cancellationToken);
-
         if (result.IsFailed)
         {
-            return Enumerable.Empty<GetLeaveRequestByEmployeeIdQueryDto>();
+            return Result.Fail(result.Errors);
         }
 
-        return result.Value.Select(x => x.MapToGetLeaveRequestByEmployeeIdQueryDto()).ToList();
+        return Result.Ok(result.Value.Select(x => x.MapToGetLeaveRequestByEmployeeIdQueryDto()));
     }
 }

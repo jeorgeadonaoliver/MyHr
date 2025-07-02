@@ -1,7 +1,7 @@
 ﻿
 namespace myHr.application.Features.PerformanceEvaluations.query.get_performanceevaluation.by_id;
 
-public class GetPerformanceEvaluationByIdQueryHandler : IRequestHandler<GetPerformanceEvaluationByIdQuery, GetPerformanceEvaluationByIdQueryDto>
+public class GetPerformanceEvaluationByIdQueryHandler : IRequestHandler<GetPerformanceEvaluationByIdQuery, Result<GetPerformanceEvaluationByIdQueryDto>>
 {
     private readonly IPerformanceEvaluationRepository _repositoty;
 
@@ -10,14 +10,14 @@ public class GetPerformanceEvaluationByIdQueryHandler : IRequestHandler<GetPerfo
         _repositoty = repository;
     }
 
-    public async Task<GetPerformanceEvaluationByIdQueryDto> Handle(GetPerformanceEvaluationByIdQuery request, CancellationToken cancellationToken)
+    public async Task<Result<GetPerformanceEvaluationByIdQueryDto>> Handle(GetPerformanceEvaluationByIdQuery request, CancellationToken cancellationToken)
     {
         var result = await _repositoty.GetAsync(x => x.EvaluationId == request.evaluationId, cancellationToken);
         if (result.IsFailed) 
         {
-            return new GetPerformanceEvaluationByIdQueryDto();
+            return Result.Fail(result.Errors);
         }
 
-        return result.Value.MapToGetPerformanceEvaluationByIdQueryDto();
+        return Result.Ok(result.Value.MapToGetPerformanceEvaluationByIdQueryDto());
     }
 }

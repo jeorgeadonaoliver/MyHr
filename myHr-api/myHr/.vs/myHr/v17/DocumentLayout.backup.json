@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\myHr\\MyHr\\myHr-api\\myHr\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B007F18-90D7-45FB-A449-24434D3F712B}|myHr.api\\myHr.api.csproj|c:\\users\\jeorge oliver\\source\\gitprojects\\myhr2025\\myhr\\myhr-api\\myhr\\myhr.api\\extension\\graphqlserviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B007F18-90D7-45FB-A449-24434D3F712B}|myHr.api\\myHr.api.csproj|solutionrelative:myhr.api\\extension\\graphqlserviceextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B007F18-90D7-45FB-A449-24434D3F712B}|myHr.api\\myHr.api.csproj|c:\\users\\jeorge oliver\\source\\gitprojects\\myhr2025\\myhr\\myhr-api\\myhr\\myhr.api\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B007F18-90D7-45FB-A449-24434D3F712B}|myHr.api\\myHr.api.csproj|solutionrelative:myhr.api\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 163,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +31,38 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.api\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "myHr.api\\GlobalUsing.cs",
+              "ToolTip": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.api\\GlobalUsing.cs",
+              "RelativeToolTip": "myHr.api\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T08:11:16.576Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 163,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GraphQLServiceExtension.cs",
+              "DocumentMoniker": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.api\\Extension\\GraphQLServiceExtension.cs",
+              "RelativeDocumentMoniker": "myHr.api\\Extension\\GraphQLServiceExtension.cs",
+              "ToolTip": "C:\\Users\\Jeorge Oliver\\source\\GitProjects\\MyHR2025\\MyHr\\myHr-api\\myHr\\myHr.api\\Extension\\GraphQLServiceExtension.cs",
+              "RelativeToolTip": "myHr.api\\Extension\\GraphQLServiceExtension.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvx4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T07:17:47.438Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,6 +1,6 @@
 ﻿namespace myHr.application.Features.JobPositions.query.get_all_jobpositions;
 
-public class GetAllJobPositionsQueryHandler : IRequestHandler<GetAllJobPositionsQuery, IEnumerable<GetAllJobPositionsQueryDto>>
+public class GetAllJobPositionsQueryHandler : IRequestHandler<GetAllJobPositionsQuery, Result<IEnumerable<GetAllJobPositionsQueryDto>>>
 {
     private readonly IJobPositionRepository _repository;
 
@@ -9,14 +9,14 @@ public class GetAllJobPositionsQueryHandler : IRequestHandler<GetAllJobPositions
         _repository = repository;
     }
 
-    public async Task<IEnumerable<GetAllJobPositionsQueryDto>> Handle(GetAllJobPositionsQuery request, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<GetAllJobPositionsQueryDto>>> Handle(GetAllJobPositionsQuery request, CancellationToken cancellationToken)
     {
         var result = await _repository.GetAllAsync(cancellationToken);
         if (result.IsFailed)
         {
-            return Enumerable.Empty<GetAllJobPositionsQueryDto>();
+            return Result.Fail(result.Errors);
         }
 
-        return result.Value.Select(x => x.MapToGetAllJobPositionsQueryDto()).ToList();
+        return Result.Ok(result.Value.Select(x => x.MapToGetAllJobPositionsQueryDto()));
     }
 }

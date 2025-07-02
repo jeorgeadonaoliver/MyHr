@@ -1,7 +1,6 @@
-﻿
-namespace myHr.application.Features.JobPositions.query.get_jobpositions.by_id;
+﻿namespace myHr.application.Features.JobPositions.query.get_jobpositions.by_id;
 
-internal class GetJobPositionByIdQueryHandler : IRequestHandler<GetJobPositionByIdQuery, GetJobPositionByIdQueryDto>
+public class GetJobPositionByIdQueryHandler : IRequestHandler<GetJobPositionByIdQuery, Result<GetJobPositionByIdQueryDto>>
 {
     private readonly IJobPositionRepository _repository;
     public GetJobPositionByIdQueryHandler(IJobPositionRepository repository)
@@ -9,15 +8,15 @@ internal class GetJobPositionByIdQueryHandler : IRequestHandler<GetJobPositionBy
         _repository = repository;
     }
 
-    public async Task<GetJobPositionByIdQueryDto> Handle(GetJobPositionByIdQuery request, CancellationToken cancellationToken)
+    public async Task<Result<GetJobPositionByIdQueryDto>> Handle(GetJobPositionByIdQuery request, CancellationToken cancellationToken)
     {
         var result = await _repository.GetAsync(x => x.PositionId == request.id, cancellationToken);
 
         if (result.IsFailed)
         {
-            return new GetJobPositionByIdQueryDto();
+            return Result.Fail(result.Errors);
         }
 
-        return result.Value.MapToGetJobPositionByIdQueryDto();
+        return Result.Ok(result.Value.MapToGetJobPositionByIdQueryDto());
     }
 }

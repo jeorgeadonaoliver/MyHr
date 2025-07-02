@@ -1,7 +1,7 @@
 ﻿
 namespace myHr.application.Features.PerformanceEvaluations.query.get_all_performanceevaluation
 {
-    public class GetAllPerformanceEvaluationQueryHandler : IRequestHandler<GetAllPerformanceEvaluationQuery, IEnumerable<GetAllPerformanceEvaluationQueryDto>>
+    public class GetAllPerformanceEvaluationQueryHandler : IRequestHandler<GetAllPerformanceEvaluationQuery, Result<IEnumerable<GetAllPerformanceEvaluationQueryDto>>>
     {
         private readonly IPerformanceEvaluationRepository _repository;
 
@@ -10,15 +10,15 @@ namespace myHr.application.Features.PerformanceEvaluations.query.get_all_perform
             _repository = repository;
         }
 
-        public async Task<IEnumerable<GetAllPerformanceEvaluationQueryDto>> Handle(GetAllPerformanceEvaluationQuery request, CancellationToken cancellationToken)
+        public async Task<Result<IEnumerable<GetAllPerformanceEvaluationQueryDto>>> Handle(GetAllPerformanceEvaluationQuery request, CancellationToken cancellationToken)
         {
             var result = await _repository.GetAllAsync(cancellationToken);
             if (result.IsFailed)
             {
-                return Enumerable.Empty<GetAllPerformanceEvaluationQueryDto>();
+                return Result.Fail(result.Errors);
             }
 
-            return result.Value.Select(x => x.MapToGetAllPerformanceEvaluationQueryDto());
+            return  Result.Ok(result.Value.Select(x => x.MapToGetAllPerformanceEvaluationQueryDto()));
         }
     }
 }

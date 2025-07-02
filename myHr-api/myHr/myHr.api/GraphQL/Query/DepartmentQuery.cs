@@ -1,7 +1,4 @@
-﻿using myHr.application.Features.Departments.query.get_all_departments;
-using myHr.application.Features.Departments.query.get_department.by_id;
-
-namespace myHr.api.GraphQL.Query
+﻿namespace myHr.api.GraphQL.Query
 {
     [ExtendObjectType("Query")]
     public class DepartmentQuery

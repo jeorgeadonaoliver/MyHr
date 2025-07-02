@@ -1,7 +1,7 @@
 ﻿
 namespace myHr.application.Features.LeaveCredits.query.get_all_leavecredits;
 
-public class GetAllLeaveCreditQueryHandler : IRequestHandler<GetAllLeaveCreditQuery, IEnumerable<GetAllLeaveCreditQueryDto>>
+public class GetAllLeaveCreditQueryHandler : IRequestHandler<GetAllLeaveCreditQuery, Result<IEnumerable<GetAllLeaveCreditQueryDto>>>
 {
     private readonly ILeaveCreditRepository _repository;
     public GetAllLeaveCreditQueryHandler(ILeaveCreditRepository repository)
@@ -9,15 +9,15 @@ public class GetAllLeaveCreditQueryHandler : IRequestHandler<GetAllLeaveCreditQu
         _repository = repository;
     }
 
-    public async Task<IEnumerable<GetAllLeaveCreditQueryDto>> Handle(GetAllLeaveCreditQuery request, CancellationToken cancellationToken)
+    public async Task<Result<IEnumerable<GetAllLeaveCreditQueryDto>>> Handle(GetAllLeaveCreditQuery request, CancellationToken cancellationToken)
     {
         var result = await _repository.GetAllAsync(cancellationToken);
 
         if (result.IsFailed) 
         {
-            return Enumerable.Empty<GetAllLeaveCreditQueryDto>();
+            return Result.Fail(result.Errors);
         }
 
-        return result.Value.Select(x => x.MapToGetAllLeaveCreditQueryDto()).ToList();
+        return Result.Ok(result.Value.Select(x => x.MapToGetAllLeaveCreditQueryDto()));
     }
 }

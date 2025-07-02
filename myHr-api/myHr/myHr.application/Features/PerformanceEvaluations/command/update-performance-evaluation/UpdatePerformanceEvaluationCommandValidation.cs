@@ -2,7 +2,7 @@
 
 public class UpdatePerformanceEvaluationCommandValidation : AbstractValidator<UpdatePerformanceEvaluationCommand>
 {
-    public readonly IPerformanceEvaluationRepository _repository;
+    private readonly IPerformanceEvaluationRepository _repository;
 
     public UpdatePerformanceEvaluationCommandValidation(IPerformanceEvaluationRepository repository)
     {
