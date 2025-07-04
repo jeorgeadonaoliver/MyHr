@@ -62,6 +62,46 @@ export type CreateEmployeeCommandInput = {
   salary: Scalars['Decimal']['input'];
 };
 
+export type CreateLeaveCreditCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  id: Scalars['UUID']['input'];
+  leaveType: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  remainingCredits?: InputMaybe<Scalars['Int']['input']>;
+  totalCredits: Scalars['Int']['input'];
+  usedCredits?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type CreateLeaveRequestCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  creditId?: InputMaybe<Scalars['UUID']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  endDate: Scalars['LocalDate']['input'];
+  id: Scalars['UUID']['input'];
+  leaveType: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate: Scalars['LocalDate']['input'];
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreatePerformanceEvaluationCommandInput = {
+  comments?: InputMaybe<Scalars['String']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  evaluationDate: Scalars['LocalDate']['input'];
+  evaluator: Scalars['String']['input'];
+  id: Scalars['UUID']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  score: Scalars['Decimal']['input'];
+};
+
 export type GetAllDepartmentsQueryDto = {
   __typename?: 'GetAllDepartmentsQueryDto';
   createdBy?: Maybe<Scalars['String']['output']>;
@@ -88,6 +128,61 @@ export type GetAllEmployeeQueryDto = {
   phoneNumber?: Maybe<Scalars['String']['output']>;
   positionId?: Maybe<Scalars['UUID']['output']>;
   salary: Scalars['Decimal']['output'];
+};
+
+export type GetAllJobPositionsQueryDto = {
+  __typename?: 'GetAllJobPositionsQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  departmentId?: Maybe<Scalars['UUID']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['UUID']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  positionTitle: Scalars['String']['output'];
+};
+
+export type GetAllLeaveCreditQueryDto = {
+  __typename?: 'GetAllLeaveCreditQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  id: Scalars['UUID']['output'];
+  leaveType: Scalars['String']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  remainingCredits?: Maybe<Scalars['Int']['output']>;
+  totalCredits: Scalars['Int']['output'];
+  usedCredits?: Maybe<Scalars['Int']['output']>;
+};
+
+export type GetAllLeaveRequestQueryDto = {
+  __typename?: 'GetAllLeaveRequestQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  creditId?: Maybe<Scalars['UUID']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  endDate: Scalars['LocalDate']['output'];
+  id: Scalars['UUID']['output'];
+  leaveType: Scalars['String']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  startDate: Scalars['LocalDate']['output'];
+  status?: Maybe<Scalars['String']['output']>;
+};
+
+export type GetAllPerformanceEvaluationQueryDto = {
+  __typename?: 'GetAllPerformanceEvaluationQueryDto';
+  comments?: Maybe<Scalars['String']['output']>;
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  evaluationDate: Scalars['LocalDate']['output'];
+  evaluator: Scalars['String']['output'];
+  id: Scalars['UUID']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  score: Scalars['Decimal']['output'];
 };
 
 export type GetDepartmentByIdQueryDto = {
@@ -118,12 +213,74 @@ export type GetEmployeeByIdQueryDto = {
   salary: Scalars['Decimal']['output'];
 };
 
+export type GetJobPositionByIdQueryDto = {
+  __typename?: 'GetJobPositionByIdQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  departmentId?: Maybe<Scalars['UUID']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['UUID']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  positionTitle: Scalars['String']['output'];
+};
+
+export type GetLeaveRequestByEmployeeIdQueryDto = {
+  __typename?: 'GetLeaveRequestByEmployeeIdQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  creditId?: Maybe<Scalars['UUID']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  endDate: Scalars['LocalDate']['output'];
+  id: Scalars['UUID']['output'];
+  leaveType: Scalars['String']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  startDate: Scalars['LocalDate']['output'];
+  status?: Maybe<Scalars['String']['output']>;
+};
+
+export type GetLeaveRequestByIdQueryDto = {
+  __typename?: 'GetLeaveRequestByIdQueryDto';
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  creditId?: Maybe<Scalars['UUID']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  endDate: Scalars['LocalDate']['output'];
+  id: Scalars['UUID']['output'];
+  leaveType: Scalars['String']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  startDate: Scalars['LocalDate']['output'];
+  status?: Maybe<Scalars['String']['output']>;
+};
+
+export type GetPerformanceEvaluationByIdQueryDto = {
+  __typename?: 'GetPerformanceEvaluationByIdQueryDto';
+  comments?: Maybe<Scalars['String']['output']>;
+  createdBy?: Maybe<Scalars['String']['output']>;
+  createdDate?: Maybe<Scalars['DateTime']['output']>;
+  employeeId?: Maybe<Scalars['UUID']['output']>;
+  evaluationDate: Scalars['LocalDate']['output'];
+  evaluator: Scalars['String']['output'];
+  id: Scalars['UUID']['output'];
+  modifiedBy?: Maybe<Scalars['String']['output']>;
+  modifiedDate?: Maybe<Scalars['DateTime']['output']>;
+  score: Scalars['Decimal']['output'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   CreateDepartment: PayLoadOfGuid;
   CreateEmployee: PayLoadOfGuid;
+  CreateLeaveCredit: PayLoadOfGuid;
+  CreateLeaveRequest: PayLoadOfGuid;
+  CreatePerformanceEvaluation: PayLoadOfGuid;
   UpdateDepartment: PayLoadOfGuid;
   UpdateEmployee: PayLoadOfGuid;
+  UpdateLeaveCredit: PayLoadOfGuid;
+  UpdateLeaveRequest: PayLoadOfGuid;
+  UpdatePerformanceEvaluation: PayLoadOfGuid;
   login: PayLoadOfString;
 };
 
@@ -138,6 +295,21 @@ export type MutationCreateEmployeeArgs = {
 };
 
 
+export type MutationCreateLeaveCreditArgs = {
+  cmd: CreateLeaveCreditCommandInput;
+};
+
+
+export type MutationCreateLeaveRequestArgs = {
+  cmd: CreateLeaveRequestCommandInput;
+};
+
+
+export type MutationCreatePerformanceEvaluationArgs = {
+  cmd: CreatePerformanceEvaluationCommandInput;
+};
+
+
 export type MutationUpdateDepartmentArgs = {
   command: UpdateDepartmentCommandInput;
 };
@@ -148,8 +320,30 @@ export type MutationUpdateEmployeeArgs = {
 };
 
 
+export type MutationUpdateLeaveCreditArgs = {
+  cmd: UpdateLeaveCreditCommandInput;
+};
+
+
+export type MutationUpdateLeaveRequestArgs = {
+  cmd: UpdateLeaveRequestCommandInput;
+};
+
+
+export type MutationUpdatePerformanceEvaluationArgs = {
+  cmd: UpdatePerformanceEvaluationCommandInput;
+};
+
+
 export type MutationLoginArgs = {
   command: AuthenticateUserCommandInput;
+};
+
+export type PayLoadOfGetAllLeaveRequestQueryDto = {
+  __typename?: 'PayLoadOfGetAllLeaveRequestQueryDto';
+  data?: Maybe<GetAllLeaveRequestQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
 };
 
 export type PayLoadOfGetDepartmentByIdQueryDto = {
@@ -162,6 +356,27 @@ export type PayLoadOfGetDepartmentByIdQueryDto = {
 export type PayLoadOfGetEmployeeByIdQueryDto = {
   __typename?: 'PayLoadOfGetEmployeeByIdQueryDto';
   data?: Maybe<GetEmployeeByIdQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfGetJobPositionByIdQueryDto = {
+  __typename?: 'PayLoadOfGetJobPositionByIdQueryDto';
+  data?: Maybe<GetJobPositionByIdQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfGetLeaveRequestByIdQueryDto = {
+  __typename?: 'PayLoadOfGetLeaveRequestByIdQueryDto';
+  data?: Maybe<GetLeaveRequestByIdQueryDto>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfGetPerformanceEvaluationByIdQueryDto = {
+  __typename?: 'PayLoadOfGetPerformanceEvaluationByIdQueryDto';
+  data?: Maybe<GetPerformanceEvaluationByIdQueryDto>;
   message?: Maybe<Scalars['String']['output']>;
   success: Scalars['Boolean']['output'];
 };
@@ -187,6 +402,41 @@ export type PayLoadOfIEnumerableOfGetAllEmployeeQueryDto = {
   success: Scalars['Boolean']['output'];
 };
 
+export type PayLoadOfIEnumerableOfGetAllJobPositionsQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllJobPositionsQueryDto';
+  data?: Maybe<Array<Maybe<GetAllJobPositionsQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetAllLeaveCreditQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllLeaveCreditQueryDto';
+  data?: Maybe<Array<Maybe<GetAllLeaveCreditQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetAllLeaveRequestQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllLeaveRequestQueryDto';
+  data?: Maybe<Array<Maybe<GetAllLeaveRequestQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetAllPerformanceEvaluationQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetAllPerformanceEvaluationQueryDto';
+  data?: Maybe<Array<Maybe<GetAllPerformanceEvaluationQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
+export type PayLoadOfIEnumerableOfGetLeaveRequestByEmployeeIdQueryDto = {
+  __typename?: 'PayLoadOfIEnumerableOfGetLeaveRequestByEmployeeIdQueryDto';
+  data?: Maybe<Array<Maybe<GetLeaveRequestByEmployeeIdQueryDto>>>;
+  message?: Maybe<Scalars['String']['output']>;
+  success: Scalars['Boolean']['output'];
+};
+
 export type PayLoadOfString = {
   __typename?: 'PayLoadOfString';
   data?: Maybe<Scalars['String']['output']>;
@@ -197,9 +447,23 @@ export type PayLoadOfString = {
 export type Query = {
   __typename?: 'Query';
   GetAllDepartment: PayLoadOfIEnumerableOfGetAllDepartmentsQueryDto;
+  GetAllJobPosition: PayLoadOfIEnumerableOfGetAllJobPositionsQueryDto;
+  GetAllJobPositionById: PayLoadOfGetJobPositionByIdQueryDto;
+  GetAllLeaveCredits: PayLoadOfIEnumerableOfGetAllLeaveCreditQueryDto;
+  GetAllLeaveRequest: PayLoadOfIEnumerableOfGetAllLeaveRequestQueryDto;
+  GetAllPerformanceEvaluation: PayLoadOfIEnumerableOfGetAllPerformanceEvaluationQueryDto;
   GetDepartmentById: PayLoadOfGetDepartmentByIdQueryDto;
   GetEmployeeById: PayLoadOfGetEmployeeByIdQueryDto;
+  GetLeaveCreditById: PayLoadOfGetLeaveRequestByIdQueryDto;
+  GetLeaveRequestByEmployeeId: PayLoadOfIEnumerableOfGetLeaveRequestByEmployeeIdQueryDto;
+  GetLeaveRequestById: PayLoadOfGetLeaveRequestByIdQueryDto;
+  GetPerformanceEvaluationById: PayLoadOfGetPerformanceEvaluationByIdQueryDto;
   getEmployee: PayLoadOfIEnumerableOfGetAllEmployeeQueryDto;
+};
+
+
+export type QueryGetAllJobPositionByIdArgs = {
+  id: Scalars['UUID']['input'];
 };
 
 
@@ -209,6 +473,26 @@ export type QueryGetDepartmentByIdArgs = {
 
 
 export type QueryGetEmployeeByIdArgs = {
+  id: Scalars['UUID']['input'];
+};
+
+
+export type QueryGetLeaveCreditByIdArgs = {
+  id: Scalars['UUID']['input'];
+};
+
+
+export type QueryGetLeaveRequestByEmployeeIdArgs = {
+  empid: Scalars['UUID']['input'];
+};
+
+
+export type QueryGetLeaveRequestByIdArgs = {
+  id: Scalars['UUID']['input'];
+};
+
+
+export type QueryGetPerformanceEvaluationByIdArgs = {
   id: Scalars['UUID']['input'];
 };
 
@@ -236,6 +520,46 @@ export type UpdateEmployeeCommandInput = {
   phoneNumber?: InputMaybe<Scalars['String']['input']>;
   positionId?: InputMaybe<Scalars['UUID']['input']>;
   salary: Scalars['Decimal']['input'];
+};
+
+export type UpdateLeaveCreditCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  id: Scalars['UUID']['input'];
+  leaveType: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  remainingCredits?: InputMaybe<Scalars['Int']['input']>;
+  totalCredits: Scalars['Int']['input'];
+  usedCredits?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type UpdateLeaveRequestCommandInput = {
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  creditId?: InputMaybe<Scalars['UUID']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  endDate: Scalars['LocalDate']['input'];
+  id: Scalars['UUID']['input'];
+  leaveType: Scalars['String']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  startDate: Scalars['LocalDate']['input'];
+  status?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePerformanceEvaluationCommandInput = {
+  comments?: InputMaybe<Scalars['String']['input']>;
+  createdBy?: InputMaybe<Scalars['String']['input']>;
+  createdDate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeId?: InputMaybe<Scalars['UUID']['input']>;
+  evaluationDate: Scalars['LocalDate']['input'];
+  evaluator: Scalars['String']['input'];
+  id: Scalars['UUID']['input'];
+  modifiedBy?: InputMaybe<Scalars['String']['input']>;
+  modifiedDate?: InputMaybe<Scalars['DateTime']['input']>;
+  score: Scalars['Decimal']['input'];
 };
 
 export type GetEmployeeQueryVariables = Exact<{ [key: string]: never; }>;

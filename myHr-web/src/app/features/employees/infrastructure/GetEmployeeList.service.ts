@@ -1,4 +1,4 @@
-import { catchError, map, Observable, of, tap } from "rxjs";
+import { catchError, map, Observable, of, shareReplay, tap } from "rxjs";
 import { IApolloService } from "../../../core/interface/apollo-service.interface";
 import { GetEmployeeListQuery } from "../application/query/get-employee/GetEmployeeListQuery";
 import { GetEmployeeListResponseModel } from "../domain/GetEmployeeListResponse.model";
@@ -16,15 +16,16 @@ export class GetEmployeeListService implements IApolloService<GetEmployeeListQue
     
     executeService(entity: GetEmployeeListQuery): Observable<GetEmployeeListResponseModel[]> {
         //console.log('Auth Service: ', this.authTokenService.getToken());
-        return this.apolloService.query<{employees: GetEmployeeListResponseModel[]}>({
+        return this.apolloService.query<{getEmployee:{data: GetEmployeeListResponseModel[]}}>({
                 query: GetEmployeeDocument,
         }).pipe(
             tap( result => {
                 this.validateApolloQueryResult.execute(result,"GetEmployeeListService");
             }),
             map( result => { 
+                const dt = result.data.getEmployee?.data ?? [];
                 console.log('Service', result);
-                return result.data?.employees ?? []
+                return result.data?.getEmployee.data ?? []
             }),
             catchError(error => {
                 console.error('GetEmployeeListService (network/unexpected error):', error);

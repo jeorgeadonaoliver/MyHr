@@ -25,7 +25,10 @@ export class LoginApolloService implements IApolloService<LoginCommand, LoginMut
                 tap(result =>{
                     this.validateApolloMutateResult.execute(result, "LoginApolloService");
                 }),
-                map(result => {return result.data!}),
+                map(result => {
+                    console.log('result data: ',result.data);    
+                    return result.data!
+                }),
                 catchError(error => {
                     console.error('Login failed (network/unexpected error):', error);
                     return of(Failed_LoginMutationResponse);

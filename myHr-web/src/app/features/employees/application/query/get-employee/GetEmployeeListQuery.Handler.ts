@@ -10,13 +10,13 @@ import { IApolloService } from "../../../../../core/interface/apollo-service.int
 export class GetEmployeeListQueryHandler implements IQuery<GetEmployeeListQuery, GetEmployeeListResponseModel[]>{
     constructor(@Inject(GetEmployeeList_Service_Token) private getEmployeeListService : IApolloService<GetEmployeeListQuery, GetEmployeeListResponseModel[]>){}
 
-    executeQuery(entity?: GetEmployeeListQuery): Observable<GetEmployeeListResponseModel[]> {
-        if (!entity) {
-            return of([] as GetEmployeeListResponseModel[]);
-        }
+    executeQuery(_: GetEmployeeListQuery = {}): Observable<GetEmployeeListResponseModel[]> {
         
-        return this.getEmployeeListService.executeService(entity).pipe(
-            map( result => result ),
+        return this.getEmployeeListService.executeService({}).pipe(
+            map( result => { 
+                console.log("Handler: ", result);
+                return result
+            }),
             catchError(
                 () => of([] as GetEmployeeListResponseModel[])
             )

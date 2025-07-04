@@ -5,9 +5,13 @@ import { Component, Input } from '@angular/core';
   imports: [],
   template: `
       <div class="bg-white p-6 rounded-xl shadow-md">
-        <h3 class="text-xl font-semibold mb-2">{{ cardTitle}}</h3>
-          <ng-content> </ng-content>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-semibold m-0">{{ cardTitle }}</h3>
+          <ng-content select="[card-action]"></ng-content>
+        </div>
+        <ng-content></ng-content>
       </div>
+
 
   `
 })

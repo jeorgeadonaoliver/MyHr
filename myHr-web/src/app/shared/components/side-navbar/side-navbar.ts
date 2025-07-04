@@ -3,7 +3,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { IconsModule } from '../icons-module/icons-module';
 import { SideNavbarIcons } from './side-navbar-icons/side-navbar-icons';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-side-navbar',
@@ -15,7 +14,7 @@ import { RouterModule } from '@angular/router';
         </div>
         <nav class="relative flex flex-col items-center flex-grow py-4 space-y-3 overflow-hidden">
           <app-side-navbar-icons  link ='/main/dashboard'>
-            <ng-icon name="matDashboard" size="26" color="white"></ng-icon>
+            <ng-icon name="matDashboard" routerLinkActive="router-link-active" size="26" color="white"></ng-icon>
           </app-side-navbar-icons>
           <app-side-navbar-icons link ='/main/employeelist' label="Employee List">
             <ng-icon name="matPeopleAlt" routerLinkActive="router-link-active" size="26" color="white"></ng-icon>

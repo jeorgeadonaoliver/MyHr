@@ -3,21 +3,21 @@ import { GetEmployeeList_Query_Token, GetEmployeeList_Service_Token } from "./To
 import { GetEmployeeListService } from "./infrastructure/GetEmployeeList.service";
 import { GetEmployeeListQueryHandler } from "./application/query/get-employee/GetEmployeeListQuery.Handler";
 import { NgModule } from "@angular/core";
-import { EmployeeListPage } from "./presentation/employee-list.page/employee-list.page";
+import { EmployeePage } from "./presentation/pages/employee.page/employee.page";
 
-const empModeulRoutes : Routes = [
-    { path : '', component: EmployeeListPage}
+const empModuleRoutes : Routes = [
+    { path : '', component: EmployeePage}
 ]
 
 
 @NgModule({
-  imports:[ RouterModule.forChild(empModeulRoutes)],
+  imports:[ RouterModule.forChild(empModuleRoutes)],
   exports: [RouterModule],
   providers: [
     { provide: GetEmployeeList_Service_Token, useClass: GetEmployeeListService },
     GetEmployeeListQueryHandler,
     { provide: GetEmployeeList_Query_Token, useClass: GetEmployeeListQueryHandler},
-    EmployeeListPage
+    EmployeePage
   ]
 })
 
